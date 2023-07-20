@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Foundation
+import Beethoven
+import Pitchy
 
 @main
 struct tunerApp: App {
@@ -15,3 +18,5 @@ struct tunerApp: App {
         }
     }
 }
+
+
