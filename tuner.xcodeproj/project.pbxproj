@@ -14,6 +14,7 @@
 		9C6E38232A68FD3B0049FB4D /* tunerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6E38222A68FD3B0049FB4D /* tunerTests.swift */; };
 		9C6E382D2A68FD3B0049FB4D /* tunerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6E382C2A68FD3B0049FB4D /* tunerUITests.swift */; };
 		9C6E382F2A68FD3B0049FB4D /* tunerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6E382E2A68FD3B0049FB4D /* tunerUITestsLaunchTests.swift */; };
+		9C6E383C2A693AB20049FB4D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9C6E383B2A693AB20049FB4D /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9C6E38282A68FD3B0049FB4D /* tunerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tunerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6E382C2A68FD3B0049FB4D /* tunerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tunerUITests.swift; sourceTree = "<group>"; };
 		9C6E382E2A68FD3B0049FB4D /* tunerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tunerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9C6E383B2A693AB20049FB4D /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				9C6E38102A68FD390049FB4D /* tuner */,
 				9C6E38212A68FD3B0049FB4D /* tunerTests */,
 				9C6E382B2A68FD3B0049FB4D /* tunerUITests */,
+				9C6E383B2A693AB20049FB4D /* Podfile */,
 				9C6E380F2A68FD390049FB4D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C6E383C2A693AB20049FB4D /* Podfile in Resources */,
 				9C6E38192A68FD3B0049FB4D /* Preview Assets.xcassets in Resources */,
 				9C6E38162A68FD3B0049FB4D /* Assets.xcassets in Resources */,
 			);
