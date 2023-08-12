@@ -6,18 +6,37 @@
 //
 
 import SwiftUI
+import Foundation
+import Beethoven
+import Pitchy
 
 struct ContentView: View {
     
     @State private var isTunerMode = true
+    @ObservedObject var viewModel: ViewModel    // init() to get around
+    var pitchEngine: PitchEngine
+    
+    init(isTunerMode: Bool = true) {
+        let localViewModel = ViewModel()
+        self.isTunerMode = isTunerMode
+        self.viewModel = localViewModel
+        self.pitchEngine = {
+            let config = Config(estimationStrategy: .yin)
+            let pitchEngine = PitchEngine(config: config, delegate: localViewModel)
+            pitchEngine.levelThreshold = -30.0
+            return pitchEngine
+        }()
+        pitchEngine.start()
+    }
     
     var body: some View {
         ZStack {
-            Color("darkGray")
+            Color(.black)
                 .edgesIgnoringSafeArea(.all)
             if (isTunerMode) {
                 VStack {
-                    TunerModeView()
+                    // tuner mode
+                    TunerModeView(viewModel: viewModel)
                     HStack {    // buttons
                         Button {
                             if (!isTunerMode) {
@@ -37,7 +56,7 @@ struct ContentView: View {
                     }
                 }
                 
-            } else {
+            } else {    // instrument mode
                 VStack {
                     InstrumentModeView()
                     HStack {
@@ -70,18 +89,20 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct TunerModeView: View {
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
         VStack{
             Text("Tuner Mode")
                 .font(.system(size: 30, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(.blue)
             Spacer()
             // Placeholder Pitch value to be implemented
-            Text("A")
+            Text(viewModel.noteText)
                 .font(.system(size: 100, weight: .bold))
-                .foregroundColor(.white)
+                .foregroundColor(.blue)
             // Placeholder Frequency value to be implemented
-            Text("440Hz/440Hz")
+            Text(viewModel.offsetText)
                 .font(.system(size: 30, weight: .semibold))
                 .foregroundColor(.gray)
             Spacer()
@@ -129,4 +150,32 @@ struct InstrumentButton: View {
                 .frame(width: 150, height: 30)
         .padding()
     }
+}
+
+class ViewModel: ObservableObject {
+    @Published var noteText: String
+    @Published var offsetText: String
+    // make init method with recieved pitch??
+    init(noteText: String = "--", offsetText: String = "+0.0%") {
+        self.noteText = noteText
+        self.offsetText = offsetText
+    }
+}
+
+extension ViewModel: PitchEngineDelegate {
+    
+    func pitchEngine(_ pitchEngine: PitchEngine, didReceivePitch pitch: Pitch) {
+        //ViewModel(noteText:pitch.note.string, offsetText: String(format:"%.2f", pitch.closestOffset.percentage) + "%")
+        
+        self.noteText = pitch.note.string
+        self.offsetText = String(format:"%.2f", pitch.closestOffset.percentage) + "%"
+        print("recieving pitch")
+    }
+    func pitchEngine(_ pitchEngine: PitchEngine, didReceiveError error: Error) {
+        print(error)
+    }
+    func pitchEngineWentBelowLevelThreshold(_ pitchEngine: PitchEngine) {
+        print("Below level threshold")
+    }
+
 }

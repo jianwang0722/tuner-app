@@ -42,6 +42,7 @@
 		4E2366E0FCE25AC2239AFCC2 /* Pods-tuner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tuner.release.xcconfig"; path = "Target Support Files/Pods-tuner/Pods-tuner.release.xcconfig"; sourceTree = "<group>"; };
 		6416FD3580C1142E0C58C2D5 /* Pods_tuner_tunerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tuner_tunerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73281C6DFFF6C2DE90FB61D1 /* Pods_tunerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tunerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C267E262A83DF0A005AC831 /* tuner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tuner.entitlements; sourceTree = "<group>"; };
 		9C6E380E2A68FD390049FB4D /* tuner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tuner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6E38112A68FD390049FB4D /* tunerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tunerApp.swift; sourceTree = "<group>"; };
 		9C6E38132A68FD390049FB4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		9C6E38102A68FD390049FB4D /* tuner */ = {
 			isa = PBXGroup;
 			children = (
+				9C267E262A83DF0A005AC831 /* tuner.entitlements */,
 				9C6E38112A68FD390049FB4D /* tunerApp.swift */,
 				9C6E38132A68FD390049FB4D /* ContentView.swift */,
 				9C6E38152A68FD3B0049FB4D /* Assets.xcassets */,
@@ -164,7 +166,6 @@
 				F74523CA081501F9B5B2E583 /* Pods-tunerTests.debug.xcconfig */,
 				2EBA884F758383676BFF871E /* Pods-tunerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -582,11 +583,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = tuner/tuner.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tuner/Preview Content\"";
+				DEVELOPMENT_TEAM = 7BCZ2HMZN3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone access to record audio for tuner";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -599,6 +604,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.tuner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -611,11 +617,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = tuner/tuner.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tuner/Preview Content\"";
+				DEVELOPMENT_TEAM = 7BCZ2HMZN3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone access to record audio for tuner";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -628,6 +638,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.tuner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
